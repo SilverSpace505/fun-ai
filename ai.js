@@ -335,15 +335,17 @@ class AI {
         ctx.fillStyle = "rgb(0, 127, 255)"
         ctx.fill()
 
-        ctx.beginPath()
-        this.player.angle -= Math.PI/2
-        ctx.moveTo(this.player.vsx+rotv2({x: -7.5*su*s, y: -10*su*s}, this.player.angle).x, this.player.vsy+rotv2({x: -7.5*su*s, y: -10*su*s}, this.player.angle).y)
-        ctx.lineTo(this.player.vsx+rotv2({x: 0*su, y: -7.5*su*s}, this.player.angle).x, this.player.vsy+rotv2({x: 0*su, y: -7.5*su*s}, this.player.angle).y)
-        ctx.lineTo(this.player.vsx+rotv2({x: 7.5*su*s, y: -10*su*s}, this.player.angle).x, this.player.vsy+rotv2({x: 7.5*su*s, y: -10*su*s}, this.player.angle).y)
-        ctx.lineTo(this.player.vsx+rotv2({x: 0*su, y: 10*su*s}, this.player.angle).x, this.player.vsy+rotv2({x: 0*su, y: 10*su*s}, this.player.angle).y)
-        ctx.lineTo(this.player.vsx+rotv2({x: -7.5*su*s, y: -10*su*s}, this.player.angle).x, this.player.vsy+rotv2({x: -7.5*su*s, y: -10*su*s}, this.player.angle).y)
-        this.player.angle += Math.PI/2
-        ctx.fillStyle = "rgb(255, 255, 0)"
-        ctx.fill()
+        if (playing) {
+            ctx.beginPath()
+            this.player.angle -= Math.PI/2
+            ctx.moveTo(this.player.vsx+rotv2({x: -7.5*su*s, y: -10*su*s}, this.player.angle).x, this.player.vsy+rotv2({x: -7.5*su*s, y: -10*su*s}, this.player.angle).y)
+            ctx.lineTo(this.player.vsx+rotv2({x: 0*su, y: -7.5*su*s}, this.player.angle).x, this.player.vsy+rotv2({x: 0*su, y: -7.5*su*s}, this.player.angle).y)
+            ctx.lineTo(this.player.vsx+rotv2({x: 7.5*su*s, y: -10*su*s}, this.player.angle).x, this.player.vsy+rotv2({x: 7.5*su*s, y: -10*su*s}, this.player.angle).y)
+            ctx.lineTo(this.player.vsx+rotv2({x: 0*su, y: 10*su*s}, this.player.angle).x, this.player.vsy+rotv2({x: 0*su, y: 10*su*s}, this.player.angle).y)
+            ctx.lineTo(this.player.vsx+rotv2({x: -7.5*su*s, y: -10*su*s}, this.player.angle).x, this.player.vsy+rotv2({x: -7.5*su*s, y: -10*su*s}, this.player.angle).y)
+            this.player.angle += Math.PI/2
+            ctx.fillStyle = "rgb(255, 255, 0)"
+            ctx.fill()
+        }
     }
 }
